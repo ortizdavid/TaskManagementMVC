@@ -1,0 +1,44 @@
+
+{% extends "layouts/back-layout.html" %}
+
+{% block title %} Upload Image {% endblock %}
+
+{% block content %}
+
+    <h2>Upload My Image</h2>
+
+    <div class="card ">
+        <div class="row">
+            <form action="/upload-image" method="POST" enctype="multipart/form-data" class="">
+                <div class="card">
+                    <div class="card-header">
+                        Data
+                    </div>
+                    <div class="card-body">
+                        <div class="col-xs-12 col-sm-12 col md-12">
+                            <div class="form-group" style="width: 60%;">
+                                <strong>Image:</strong>
+                                <input type="file" name="image" id="" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-xs-12 col-sm-12 col md-12" style="padding-left: 10px;;">
+                    <div class="form-group">
+                        <br>
+                        <button type="submit" class="btn btn-primary">
+                            <i class=""></i>
+                            Submit
+                        </button>
+                        <a href="/user-data" class="btn btn-danger">
+                            <i class=""></i>
+                            Cancel
+                        </a>
+                    </div>
+                    <br>
+                </div>
+            </form>
+        </div>
+    </div>  
+
+{% endblock %}

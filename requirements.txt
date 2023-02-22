@@ -1,0 +1,6 @@
+werkzeug
+Flask
+flask-SQLAlchemy
+SQLAlchemy
+MySQL
+pymysql

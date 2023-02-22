@@ -1,0 +1,30 @@
+
+{% extends "layouts/back-layout.html" %}
+
+{% block title %} User Data {% endblock %}
+
+{% block content %}
+
+    <h3>My Personal data</h3>
+
+    <div class="card" style="padding: 1%;">
+        <div class="card-header">
+            <h5>Data</h5>
+        </div>
+        <div class="card-body">
+            {% if data.image is none %}
+                <img style="width:10%" class="img img-rounded" src="/static/images/blank-data.png" alt="Image" class="card-img-left"><br>
+                <a href="/upload-image" class="btn btn-primary">Upload Image</a>
+            {% else %}
+                <img style="width:30%" class="img img-rounded" src="/uploads/imgs/{{ data.image }}" alt="Image" class="card-img-left">
+            {% endif %}
+            <br><br>
+            <p><strong>Id: </strong>{{ data.user_id }}</p>
+            <p><strong>Name: </strong>{{ data.user_name }}</p>
+            <p><strong>Role: </strong>{{ data.role_name }}</p>
+            <p><strong>Created at: </strong>{{ data.created_at }}</p>
+            <p><strong>Updated at: </strong>{{ data.updated_at }}</p>
+        </div>
+    </div>
+
+{% endblock %}

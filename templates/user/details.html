@@ -1,0 +1,32 @@
+{% extends "layouts/back-layout.html" %}
+
+{% block title %} Details {% endblock %}
+
+{% block content %}
+
+    <h3>User Details</h3>
+
+    <div align="right">
+        <a href="/users" class="btn btn-primary">Go Back</a>
+    </div>
+    
+    <div class="card" style="padding: 1%;">
+        <div class="card-header">
+            <h5>User Data</h5>
+        </div>
+        <div class="card-body">
+            {% if user.image is none %}
+                <img style="width:10%" class="img img-rounded" src="/static/images/blank-user.png" alt="Image" class="card-img-left">
+            {% else %}
+                <img style="width:30%" class="img img-rounded" src="/uploads/imgs/{{ user.image }}" alt="Image" class="card-img-left">
+            {% endif %}
+            <br><br>
+            <p><strong>Id: </strong>{{ user.user_id }}</p>
+            <p><strong>Name: </strong>{{ user.user_name }}</p>
+            <p><strong>Role: </strong>{{ user.role_name }}</p>
+            <p><strong>Created at: </strong>{{ user.created_at }}</p>
+            <p><strong>Updated at: </strong>{{ user.updated_at }}</p>
+        </div>
+    </div>
+
+{% endblock %}

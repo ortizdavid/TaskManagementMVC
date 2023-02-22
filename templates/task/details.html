@@ -1,0 +1,33 @@
+{% extends "layouts/back-layout.html" %}
+
+{% block title %} Details {% endblock %}
+
+{% block content %}
+
+    <h3>Task Details</h3>
+
+    <div align="right">
+        <a href="/my-tasks" class="btn btn-primary">Go Back</a>
+    </div>
+    
+    <div class="card" style="padding: 1%;">
+        <div class="card-header">
+            <h5>Task Data</h5>
+        </div>
+        <div class="card-body">
+            <br><br>
+            <p><strong>Id: </strong>{{ task.user_id }}</p>
+            <p><strong>Task Name: </strong>{{ task.task_name }}</p>
+            <p><strong>Start Date: </strong>{{ task.start_date }}</p>
+            <p><strong>End Date: </strong>{{ task.end_date }}</p>
+            <p><strong>User: </strong>{{ task.user_name }}</p>
+            <p><strong>Role: </strong>{{ task.role_name }}</p>
+            <p><strong>Created at: </strong>{{ task.created_at }}</p>
+            <p><strong>Updated at: </strong>{{ task.updated_at }}</p>
+            <p><strong>Status: </strong>{{ task.status }}</p>
+            <p><strong>Description: </strong>{{ task.description }}</p>
+        </div>
+    </div>
+
+{% endblock %}
+

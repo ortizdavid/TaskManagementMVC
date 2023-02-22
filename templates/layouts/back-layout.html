@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <link href="{{url_for('static', filename = 'css/style.css')}}" rel="stylesheet">
+        <link href="{{url_for('static', filename = 'lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+        <title>PythonMVC - {% block title %}{% endblock %}</title>
+    {% endblock %}        
+</head>
+<body style="background-color: hsl(233, 44%, 96%);">
+    <!-- MENU ACCORDING USER ROLE -->
+    {% if logged_user.role_name == 'administrator' %}
+        {% include 'layouts/admin-menu.html' %}
+    {% elif logged_user.role_name == 'normal' %}
+        {% include 'layouts/normal-menu.html' %}
+    {% else %}
+        {% include 'error/404-menu.html' %}
+    {% endif %}
+    <div id="content" class="container">
+        <br><br><br>
+        {% block content %}
+        
+        {% endblock %} 
+    </div>
+<div id="footer" class="footer">
+        {% block footer %}
+            <div align="center">
+               PythonMVC &copy; Copyright 2022 
+            </div>
+        {% endblock %}
+    </div>
+    <script src="{{url_for('static', filename = 'js/script.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'lib/bootstrap/js/bootstrap.min.js')}}"></script>
+</body>
+</html>

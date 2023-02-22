@@ -1,0 +1,50 @@
+{% extends "layouts/back-layout.html" %}
+
+{% block title %} My Tasks {% endblock %}
+
+{% block content %}
+
+    <h2>My Tasks</h2>
+
+    <div align="right">
+        <a href="/tasks/add" class="btn btn-primary">Add new</a>
+    </div>
+
+    <div class="card" style="padding: 1%;">
+        {% if num_registos == 0 %}
+        <div class="alert alert-warning">
+            <h5>No records found!</h5>
+        </div>
+        {% else %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Task</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Status</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in  tasks %}
+                        <tr>
+                            <td>{{ task.task_id }}</td>
+                            <td>{{ task.task_name }}</td>
+                            <td>{{ task.start_date }}</td>
+                            <td>{{ task.end_date }}</td>
+                            <td>{{ task.status }}</td>
+                            <td>
+                                <a href="/tasks/{{ task.task_id }}/details" class="btn btn-primary">
+                                    Details
+                                </a>
+                            <td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+    
+{% endblock %}

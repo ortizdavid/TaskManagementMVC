@@ -1,0 +1,14 @@
+{% extends "layouts/back-layout.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+    <h2>Home Page</h2><br>
+
+    <div class="alert alert-info">
+        <h5>User: {{ logged_user.user_name}}</h5>
+        <h5>Role: {{ logged_user.role_name }} </h5>
+    </div>
+
+{% endblock %}
